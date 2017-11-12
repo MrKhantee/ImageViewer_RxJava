@@ -79,11 +79,6 @@ public class MainActivity extends AppCompatActivity {
         ImagesUriApi imagesUriApi=retrofit.create(ImagesUriApi.class);
         Observable<Country> observable= imagesUriApi.fetchCountryData();
 
-
-
-
-
-
         observable.subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<Country>() {
@@ -111,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void onError(Throwable e) {
+                        e.printStackTrace();
 
                     }
 
